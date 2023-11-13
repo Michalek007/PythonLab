@@ -33,7 +33,7 @@ print()
 
 df2 = df['age'].sort_values(ascending=False)
 
-
+# getting indexes for 10 the oldest
 indexes = [df2.index.values[i] for i in range(10)]
 
 labels = ('limit_bal', 'age', 'education:1', 'bill_amt_X')
@@ -42,19 +42,19 @@ for i in indexes:
     print(f'{df[labels[0]][i]}\t\t{df[labels[1]][i]}\t\t{df[labels[2]][i]}\t\t{df[labels[3]][i]}')
 
 
-# fig, ax = plt.subplots(2, 2)
-# fig.tight_layout(pad=5.0)
+fig, ax = plt.subplots(2, 2)
+# fig.tight_layout(pad=2.0)
 
 plt.subplot(2, 2, 1)
 plt.hist(df['limit_bal'])
 plt.title('Histogram of limit bal')
-# plt.xlabel('Limit bal')
+plt.xlabel('Limit bal')
 plt.ylabel('Quantity')
 plt.grid()
 
 plt.subplot(2, 2, 3)
 plt.plot(df['age'], df['limit_bal'], '.')
-# plt.title('Age of limit bal')
+plt.title('Age of limit bal')
 plt.xlabel('Limit bal')
 plt.ylabel('Age')
 plt.grid()
@@ -62,7 +62,8 @@ plt.grid()
 plt.subplot(2, 2, 2)
 plt.hist(df['age'])
 plt.title('Histogram of age')
-# plt.xlabel('Age')
-# plt.ylabel('Quantity')
+plt.xlabel('Age')
+plt.ylabel('Quantity')
 plt.grid()
+plt.tight_layout()
 plt.show()

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # code snippet to be executed only once
 setup_cached = """import functools
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def calculate(n):
     if n < 2:
         return n
@@ -20,8 +20,7 @@ setup = """def calculate(n):
 """
 
 solution = """
-if __name__ == '__main__':
-    fibonacci = calculate(num)
+fibonacci = calculate(num)
 """
 
 code_list = []
@@ -30,11 +29,11 @@ time_list_cashed = []
 x = []
 
 # number of max generated fibonacci sequence
-N = 10000
+N = 25
 
 # number of how many times code will be executed in one iteration
-number = 10000
-for n in range(9000, N):
+number = 100
+for n in range(9, N):
     x.append(n)
     code_init = f"""
 num = {n}

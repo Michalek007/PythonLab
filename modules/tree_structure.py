@@ -35,7 +35,6 @@ class Tree:
     """
     def __init__(self, main_node: TreeNode):
         self.main_node = main_node
-        self._min_value = min(self.get_all_values())
 
     @staticmethod
     def tab_generator(count: int):
@@ -46,7 +45,7 @@ class Tree:
 
     @property
     def min_value(self):
-        return self._min_value
+        return min(self.get_all_values())
 
     def get_all_values(self, main_node=None, values=None):
         if values is None:
